@@ -6,7 +6,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,8 +31,9 @@ public class Compra {
     @Column(nullable = false)
     private boolean installment;
 
+    @Column(nullable = true)
     private int qtyInstallment;
 
-    @ManyToOne
-    private User user;
+    @Column(nullable = true)
+    private UUID userId;
 }

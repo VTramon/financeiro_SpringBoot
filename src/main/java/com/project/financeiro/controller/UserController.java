@@ -45,6 +45,11 @@ public class UserController {
 
     @PostMapping
     ResponseEntity<User> createUser(@RequestBody @Validated User user) {
-        return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
+        try {
+            User savedUser = userRepository.save(user);
+            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.valueOf(409));
+        }
     }
 }

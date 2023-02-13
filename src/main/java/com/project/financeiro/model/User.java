@@ -42,5 +42,5 @@ public class User {
     private String identifyerNumber;
 
     @OneToMany
-    private List<Compra> bills;
+    private List<Compra> compra;
 }
